@@ -3,7 +3,7 @@ var ObjectID = require('mongodb').ObjectID;
 module.exports =  function(app,db){
     
     app.get('/', function(req,res){
-        res.sendFile(__dirname+'/'+'/index.html')
+        res.sendfile("app/views/index.html")
     });
 
     app.get('/notes/:id', (req,res) =>{
