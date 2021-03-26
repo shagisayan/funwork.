@@ -3,7 +3,6 @@ var getUrl = window.location;
 var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
 console.log(baseUrl);
 
-
 function addNote(){
   var title = document.getElementById("add-title").value;
   var text = document.getElementById("add-body").value;

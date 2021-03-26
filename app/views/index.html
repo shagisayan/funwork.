@@ -1,49 +1,191 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Notes CRUD Client</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta charset="UTF-8">  <link rel="stylesheet" href="styles.css">
+  <title>Funwork2</title>
 
   <script src="app/public/js/jquery-3.2.1.js"></script>
 
   <style>
     input[type='submit'], button, [aria-label]{
       cursor: pointer;
+      color: black;
+      background-color: rgb(37, 199, 45);
+      border-radius: 8px;
+      
     }
     #spoiler{
       display: none;
     }
+    html,body{
+            width: 100%;
+            height: 100%;
+           
+            
+        }
+        #back{
+            background-color: rgb(248, 238, 238);
+            padding: 20px; 
+            height: 100%;
+       
+           ;
+            
+            text-align: center;
+        
+        }
+        .name{
+            background-color: rgba(242, 242, 247, 0.904);
+            padding: 5px;
+            box-shadow: 0px 0px 5px 0px #000;
+            color: rgb(41, 41, 37);
+        }
+        table{
+            width: 90%;
+        }   
+        th{
+            color: #000;
+        }
+        .bold{
+            color: rgb(51, 18, 88);
+        }
+        .save .savee{
+            color: green;
+            background-color: rgb(76, 92, 97);
+            border-radius: 8px;
+
+        }
+        h3{
+            text-align: center;
+        }
+        span{
+            color:blue;
+        }
+        .git{
+            margin-left: 95%;
+        }
+        .tex{
+            color: rebeccapurple;
+        }
+        
+     tr{
+         color: darkorchid;
+     }
   </style>
 
 </head>
 <body>
+    <div class="container-fluid back">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand center" href="#" style="color:white">NatureChoice</a>
+       
+        <div>
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
 
+            <li class="nav-item active">
+              <a class="nav-link" href="#">About us<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/shagisayan" target="blank">Github</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="https://shagisayan.github.io/soundcloudmusic1/" target="blank">Music</a>
+            </li>
+       
+          </ul>
+        </div>
+      </nav>
+
+
+ <div id="back">
+<div id="se1">
 <form action="javascript:void(0);" method="POST" onsubmit="addNote()">
-  <input type="text" id="add-title" placeholder="New Note Title">
-  <input type="text" id="add-body" placeholder="New Note Body">
+     <b class="bold"> First Name:</b>  <input class="name" type="text" id="add-title" placeholder="Your First Name"><br><br>
+     <b class="bold"> Last Name: </b>  <input class="name" type="text" id="add-body" placeholder="Your Last Name"><br><br>
+     <b class="bold"> Address: </b>  <input class="name" type="text" id="add-body" placeholder="Your Address"><br><br>
+     <b class="bold"> Mobile Number: </b>  <input class="name" type="text" id="add-body" placeholder="Your Mobile number"><br><br>
+  <input class="save" type="submit" value="Save here...">
+</form>
+<hr>
+</div>
+
+<div id="se2">
+<h3> <span>  Edit</span> and <span>Delete</span> here... </h3>
+<hr>
+<div id="spoiler" role="aria-hidden">
+  <form action="javascript:void(0);" method="POST" onsubmit="saveEdit()">
+    <b class="bold">Edit your First Name:</b> <input class="tex name" type="text" id="edit-title" placeholder="Edit Your First Name"><br><br>
+    <b class="bold">Edit your Last Name:</b> <input class="tex name" type="text" id="edit-body" placeholder=" Edit Your First Name"><br><br>
+    <b class="bold">Edit your Address:</b> <input class="tex name" type="text" id="edit-body" placeholder=" Edit your Address"><br><br>
+    <b class="bold">Edit your mobile number:</b> <input class="tex name" type="text" id="edit-body" placeholder=" Edit your mobile number"><br><br>
+    <input class="savee" type="submit" id="se3" value="Edit">
+  </form>
+</div> 
+
+<!-- <form action="javascript:void(0);" method="POST" onsubmit="addNote()">
+  <input type="text" id="add-title" placeholder="New Note Title"><br><br>
+  <input type="text" id="add-body" placeholder="New Note Body"><br><br>
   <input type="submit" value="Add">
 </form>
-
+<hr>
 <div id="spoiler" role="aria-hidden">
   <form action="javascript:void(0);" method="POST" onsubmit="saveEdit()">
     <input type="text" id="edit-title">
     <input type="text" id="edit-body">
     <input type="submit" value="Edit">
-  </form>
-</div>
+  </form> -->
 
 <table>
   <tr>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Text</th>
+    <th>Id</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Address</th>
+    <th>Mobile Number</th>
   </tr>
     <tbody id="notes">
     </tbody>
-</table>
+        
+</table><br><br><br><br>
+<button id="home">Home</button>
+</div>
 
+
+</div>
+
+</div>
 <!-- <script src="app/public/js/script1.js"></script> -->
 <script src="app/public/js/script2.js"></script>
+<script>
+
+window.onload = function(){
+        $("#se2").hide()
+     
+}
+
+ $(document).ready(function(){
+  
+
+
+        $(".save").click(function(){
+            $("#se1").hide(3000);
+            $("#se2").show(3000);
+        });
+        
+        $("#home").click(function(){
+            $("#se2").hide(3000);
+            $("#se1").show(3000);
+        });
+
+
+              });
+
+
+</script>
 <!-- <script src="app/public/js/script3.js"></script> -->
 </body>
 </html>
